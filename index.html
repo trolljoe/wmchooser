@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="warning" class="warning">
+        Warning: For the best experience, please use Qutebrowser or Browsher.
+    </div>
     <a href="https://github.com/trolljoe/wmchooser" target="_blank" id="github-link">
         <svg id="github-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
             <defs>
@@ -109,6 +112,28 @@
             </div>
         </div>
     </div>
+    <style>
+        .warning {
+            display: none;
+            padding: 10px;
+            margin: 10px 0;
+            color: red;
+            border: 1px solid red;
+            background-color: #fdd;
+        }
+    </style>
     <script src="index.js"></script>
+    <script>
+        function isUnsupportedBrowser(userAgent) {
+            return userAgent.includes("Links") || userAgent.includes("Lynx") || userAgent.includes("Unknown");
+        }
+
+        window.onload = function() {
+            const userAgent = navigator.userAgent;
+            if (isUnsupportedBrowser(userAgent)) {
+                document.getElementById("warning").style.display = "block";
+            }
+        };
+    </script>
 </body>
 </html>
