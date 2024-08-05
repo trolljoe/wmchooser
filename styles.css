@@ -22,7 +22,6 @@ body {
     background: #000;
     border: 2px solid #00FF00;
     padding: 20px;
-    border-radius: 5px;
     width: 400px;
     text-align: center;
 }
@@ -53,6 +52,7 @@ button:hover {
 #wm-link {
     text-decoration: none;
     color: #00FF00;
+    margin-top: 10px;
 }
 
 #alternatives {
@@ -90,4 +90,17 @@ button:hover {
     height: auto;
     animation: spinAndZoom 3s infinite linear;
     fill: url(#gradient);
+}
+
+#wm-img {
+    margin-bottom: 5px;
+}
+
+#pros-cons {
+    list-style-type: none;
+    padding: 0;
+}
+
+#wm-cons {
+    color: red;
 }
