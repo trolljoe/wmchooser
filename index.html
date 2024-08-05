@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Window Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="content">
+        <div id="quiz">
+            <div class="question" id="q1">
+                <h2>Welcome to the Window Manager Selector</h2>
+                <p>This quiz will help you find the best Window Manager (WM) for your Linux system. Window Managers control the placement and appearance of windows on your screen. They come in various styles and configurations. Let's get started!</p>
+                <button onclick="nextQuestion('start', 'q2')">Start</button>
+            </div>
+            <div class="question" id="q2" style="display:none;">
+                <h2>Do you plan on using Wayland?</h2>
+                <p>Wayland is a protocol that replaces X11 (the traditional X Window System) as the way graphical elements are managed in Linux. It is designed to be simpler and more efficient, but not all Window Managers support it.</p>
+                <button onclick="nextQuestion('yes', 'q3a')">Yes</button>
+                <button onclick="nextQuestion('no', 'q3b')">No</button>
+            </div>
+            <div class="question" id="q3a" style="display:none;">
+                <h2>Do you want a highly configurable WM?</h2>
+                <p>A highly configurable Window Manager allows extensive customization of the look and behavior. This includes adjusting keybindings, appearance, and functionality to fit your workflow.</p>
+                <button onclick="nextQuestion('yes', 'q4a')">Yes</button>
+                <button onclick="nextQuestion('no', 'q5a')">No</button>
+            </div>
+            <div class="question" id="q3b" style="display:none;">
+                <h2>Do you prefer a minimalistic WM?</h2>
+                <p>Minimalistic Window Managers focus on simplicity and use minimal resources. They often come with fewer features out-of-the-box but are highly customizable if you want to add features yourself.</p>
+                <button onclick="nextQuestion('yes', 'q4b')">Yes</button>
+                <button onclick="nextQuestion('no', 'q5b')">No</button>
+            </div>
+            <div class="question" id="q4a" style="display:none;">
+                <h2>Do you want a tiling WM?</h2>
+                <p>Tiling Window Managers automatically arrange windows in a non-overlapping way to make the most efficient use of screen space. They often come with keyboard shortcuts for managing windows.</p>
+                <button onclick="nextQuestion('yes', 'q6a')">Yes</button>
+                <button onclick="nextQuestion('no', 'q7a')">No</button>
+            </div>
+            <div class="question" id="q4b" style="display:none;">
+                <h2>Do you want a dynamic WM?</h2>
+                <p>Dynamic Window Managers can switch between tiling and floating window layouts on-the-fly. This flexibility allows you to choose the best layout for different tasks.</p>
+                <button onclick="nextQuestion('yes', 'q6b')">Yes</button>
+                <button onclick="nextQuestion('no', 'q7b')">No</button>
+            </div>
+            <div class="question" id="q5a" style="display:none;">
+                <h2>Do you want a compositing WM?</h2>
+                <p>Compositing Window Managers provide effects like transparency, shadows, and animations. This can enhance the visual experience, but may require more system resources.</p>
+                <button onclick="nextQuestion('yes', 'result', 'Sway')">Yes</button>
+                <button onclick="nextQuestion('no', 'result', 'Hikari')">No</button>
+            </div>
+            <div class="question" id="q5b" style="display:none;">
+                <h2>Do you want a lightweight WM?</h2>
+                <p>Lightweight Window Managers are designed to use minimal system resources. They are ideal for older hardware or systems where performance is a priority.</p>
+                <button onclick="nextQuestion('yes', 'result', 'Openbox')">Yes</button>
+                <button onclick="nextQuestion('no', 'result', 'IceWM')">No</button>
+            </div>
+            <div class="question" id="q6a" style="display:none;">
+                <h2>Do you want a stacking WM?</h2>
+                <p>Stacking Window Managers allow windows to overlap, which can be useful for multitasking and managing multiple applications at once.</p>
+                <button onclick="nextQuestion('yes', 'result', 'Wayfire')">Yes</button>
+                <button onclick="nextQuestion('no', 'result', 'Labwc')">No</button>
+            </div>
+            <div class="question" id="q6b" style="display:none;">
+                <h2>Do you want a scriptable WM?</h2>
+                <p>Scriptable Window Managers allow you to use scripts to automate and customize window management tasks, providing a powerful way to tailor the environment to your needs.</p>
+                <button onclick="nextQuestion('yes', 'result', 'xmonad')">Yes</button>
+                <button onclick="nextQuestion('no', 'result', 'i3')">No</button>
+            </div>
+            <div class="question" id="q7a" style="display:none;">
+                <h2>Do you want a minimalist WM?</h2>
+                <p>Minimalist Window Managers are focused on providing a minimal user interface. They are often preferred by users who want a simple and uncluttered workspace.</p>
+                <button onclick="nextQuestion('yes', 'result', 'dwm')">Yes</button>
+                <button onclick="nextQuestion('no', 'result', 'herbstluftwm')">No</button>
+            </div>
+            <div class="question" id="q7b" style="display:none;">
+                <h2>Do you prefer a highly customizable WM?</h2>
+                <p>Highly customizable Window Managers allow you to modify almost every aspect of their behavior and appearance. This flexibility can be both powerful and complex.</p>
+                <button onclick="nextQuestion('yes', 'result', 'bspwm')">Yes</button>
+                <button onclick="nextQuestion('no', 'q8a')">No</button>
+            </div>
+            <div class="question" id="q8a" style="display:none;">
+                <h2>Do you prefer a WM that's easy to configure?</h2>
+                <p>An easy to configure WM might be easier to customize, but it might not be as powerful.</p>
+                <button onclick="nextQuestion('yes', 'result', 'QTile')">Yes</button>
+                <button onclick="nextQuestion('no', 'result', 'awesome')">No</button>
+            </div>
+            <div class="question" id="result" style="display:none;">
+                <h2>Result</h2>
+                <p id="wm-result"></p>
+                <a id="wm-link" href="" target="_blank">Learn More</a>
+                <div id="alternatives">
+                    <p>Other recommendations:</p>
+                    <ul id="alternatives-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
