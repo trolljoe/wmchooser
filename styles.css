@@ -69,3 +69,25 @@ button:hover {
 #alternatives-list li {
     margin: 5px 0;
 }
+
+#github-link {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+@keyframes spinAndZoom {
+    0% { transform: scale(1); filter: hue-rotate(0deg); }
+    25% { transform: scale(1.2); filter: hue-rotate(90deg); }
+    50% { transform: scale(1.5); filter: hue-rotate(180deg); }
+    75% { transform: scale(1.2); filter: hue-rotate(270deg); }
+    100% { transform: scale(1); filter: hue-rotate(360deg); }
+}
+
+#github-logo {
+    width: 40px;
+    height: auto;
+    animation: spinAndZoom 3s infinite linear;
+    fill: url(#gradient);
+}
