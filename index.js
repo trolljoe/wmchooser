@@ -42,7 +42,7 @@ function getWMUrl(wm) {
         case 'Openbox':
             return 'https://openbox.org';
         case 'Hikari':
-            return 'https://hikariwm.org';
+            return 'https://hikari.acmelabs.space/';
         case 'Wayfire':
             return 'https://wayfire.org';
         case 'Labwc':
@@ -60,9 +60,15 @@ function getWMUrl(wm) {
         case 'awesome':
             return 'https://awesomewm.org';
         case 'IceWM':
-            return 'https://icewm.org';
+            return 'https://ice-wm.org/';
         case 'QTile':
             return 'https://qtile.org';
+        case 'River':
+            return 'https://codeberg.org/river/river';
+        case 'dwl':
+            return 'https://codeberg.org/dwl/dwl';
+        case 'Sway':
+            return 'https://swaywm.org';
         default:
             return '#';
     }
@@ -70,7 +76,7 @@ function getWMUrl(wm) {
 
 function getAlternatives(wm) {
     const alternatives = {
-        'Sway': ['bspwm', 'i3'],
+        'Sway': ['bspwm', 'i3', 'Wayfire'],
         'Openbox': ['Fluxbox', 'IceWM'],
         'Hikari': ['dwm', 'herbstluftwm'],
         'Wayfire': ['Sway', 'River'],
@@ -83,7 +89,9 @@ function getAlternatives(wm) {
         'awesome': ['i3', 'bspwm'],
         'IceWM': ['Openbox', 'Fluxbox'],
         'QTile': ['i3', 'bspwm'],
-        'Fluxbox': ['Openbox', 'IceWM']
+        'Fluxbox': ['Openbox', 'IceWM'],
+        'River': ['Sway', 'Wayfire'],
+        'dwl': ['Sway', 'River']
     };
     return alternatives[wm] || [];
 }
